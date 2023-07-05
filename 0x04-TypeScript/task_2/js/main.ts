@@ -50,3 +50,25 @@ if (typeof salary === 'number' && salary < 500) {
 // console.log(createEmployee(200)); // Output: Teacher
 // console.log(createEmployee(1000)); // Output: Director
 // console.log(createEmployee("$500")); // Output: Director
+
+
+// Write a function isDirector
+// it accepts employee as an argument
+// it will be used as a type predicate and if the employee is a director
+
+function isDirector(employee: Director | Teacher): employee is Director {
+return employee instanceof Director;
+}
+
+// Write a function executeWork
+// it accepts employee as an argument
+// if the employee is a Director, it will call workDirectorTasks
+// if the employee is a Teacher, it will call workTeacherTasks
+
+function executeWork(employee: Director | Teacher) {
+    if (isDirector(employee)){
+        console.log (employee.workDirectorTasks());
+    } else {
+       console.log (employee.workTeacherTasks());
+    }
+}
